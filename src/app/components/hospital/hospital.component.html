@@ -1,0 +1,128 @@
+<p>hospital works!</p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    Administrar Hospitales
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                        data-target="#crearHospital">Nueva Hospital</button>
+                </div>
+                <div class="modal fade" id="crearHospital" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Crear Hospital</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form [formGroup]="form">
+                                    <div class="form-group">
+                                        <input type="text" name="ID Hospital" formControlName="txtid"
+                                            placeholder="Insertar ID hospital" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="Nombre Hospital" formControlName="txtnombre"
+                                            placeholder="Insertar nombre hospital" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="Direccion Hospital" formControlName="txtdireccion"
+                                            placeholder="Insertar direccion hospital" class="form-control">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" (click)="crearHospital()"
+                                            data-dismiss="modal">Crear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover bg-white">
+                <thead>
+                    <tr>
+                        <th>ID Hospital</th>
+                        <th>NOMBRE </th>
+                        <th>DIRECCION </th>
+
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of hospitales">
+                        <td>
+                            {{i.hos_id}}
+                        </td>
+                        <td>
+                            {{i.hos_nombre}}
+                        </td>
+                        <td>
+                            {{i.hos_direccion}}
+                        </td>
+
+ 
+                        <td class="d-flex justify-content-center">
+
+                            <a class="btn btn-danger" (click)="eliminarHospital(i.hos_id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                            <a class="btn btn-success" data-toggle="modal" data-target="#editarHospital"
+                                (click)="infoUpdateHospital(i.hos_id,i.hos_nombre,i.hos_direccion,i.hos_estado)">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <div class="modal fade" id="editarHospital" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar Hospital</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form [formGroup]="form">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h6>Id Movie:{{informacionHospital.hos_id}}</h6>
+                                                    </label>
+                                                    <input type="text" name="Nombre Hospital" formControlName="txtnombre"
+                                                        placeholder="{{informacionHospital.hos_nombre}}"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="Direccion Hospital" formControlName="txtdireccion"
+                                                        placeholder="{{informacionHospital.hos_direccion}}"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        (click)="actualizarHospital(informacionHospital.hos_id)"
+                                                        data-dismiss="modal">Actualizar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
