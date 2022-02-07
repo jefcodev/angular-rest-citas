@@ -9,7 +9,7 @@ export class ConsultorioService {
   constructor(private http:HttpClient) { }
 
   public getConsultorio(){
-    const url= `http://localhost:4000/consultorio`
+    const url= `http://localhost:4000/consultorios`
     return this.http.get(url)
   }
 

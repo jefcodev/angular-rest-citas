@@ -10,7 +10,7 @@ export class MedicoService {
   constructor(private http:HttpClient) { }
 
   public getMedico(){
-    const url= `http://localhost:4000/medico`
+    const url= `http://localhost:4000/medicos`
     return this.http.get(url)
   }
 
