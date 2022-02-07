@@ -46,7 +46,7 @@ export class HospitalComponent implements OnInit {
 
       hos_nombre:this.form.value.txtnombre,
       hos_direccion:this.form.value.txtdireccion,
-      hos_estado:this.form.value.txtstate
+      hos_estado:true
     }).subscribe(res=>{
       console.log('Hospital creado correctamente')
       this.cargarHospital()

@@ -9,6 +9,9 @@ import { IgxDatePickerModule } from "igniteui-angular";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MedicoComponent } from './components/medico/medico.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
+import { CitasComponent } from './components/citas/citas.component';
+
+import { EspecialidadComponent } from './components/especialidad/especialidad.component';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { HospitalComponent } from './components/hospital/hospital.component';
     AppComponent,
     PacienteComponent,
     MedicoComponent,
-    HospitalComponent
+    HospitalComponent,
+    EspecialidadComponent,
+    CitasComponent
    
   ],
   imports: [
